@@ -29,6 +29,14 @@ public class AD4 extends Papouch {
     public static final int MEASUREMENT = 0x51;
 
 
+    /**
+     * Decode one time measurement response message and returns measured
+     * values for each chanel. The value may be from range 0 - 10 000.
+     *
+     * @param message
+     * @return
+     * @throws SpinelException
+     */
     public static int[] getOneTimeMeasurement(SpinelMessage message)
             throws SpinelException {
         int[] values = new int[4];
@@ -44,6 +52,14 @@ public class AD4 extends Papouch {
         }
     }
 
+    /**
+     * Decode one time measurement response message and returns status for
+     * each chanel.
+     *
+     * @param message
+     * @return
+     * @throws SpinelException
+     */
     public static int[] getStatus(SpinelMessage message) throws SpinelException {
         int[] values = new int[4];
         if (message.getInst() == 0) {
